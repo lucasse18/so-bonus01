@@ -2,7 +2,7 @@
 set -e
 
 # parametros
-N_AMOSTRAS=3  # numero de execucoes para cada tamanho de buffer
+N_AMOSTRAS=5  # numero de execucoes para cada tamanho de buffer
 BUFFER_MAX=20 # tamanho maximo do buffer em potencia de 2
 
 # funcoes
@@ -24,10 +24,11 @@ function run() {
 
     SOMA=`echo "$SOMA / $N_AMOSTRAS" | bc -l`
     echo "$i,$SOMA" >> $OUTFILE
-    echo "terminou $i"
+    echo -ne "${1} $((${i}+1))/$((${BUFFER_MAX}+1))\r"
 
     ((BUFFSIZE *= 2))
   done
+  echo ""
 }
 
 function die() {
