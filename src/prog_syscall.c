@@ -12,8 +12,9 @@ int main(int argc, char *argv[]) {
 
   ssize_t bytes_read = read(stdin, buffer, buffsize);
   while (bytes_read > 0) {
-    write(stdout, &buffer, bytes_read);
+    write(stdout, buffer, bytes_read);
     bytes_read = read(stdin, buffer, buffsize);
   }
-}
 
+  free(buffer);
+}
