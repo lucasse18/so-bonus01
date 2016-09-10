@@ -1,0 +1,7 @@
+O script espera a output do comando time no seguinte formato:
+real    0m0.008s
+user    0m0.007s
+sys     0m0.000s
+
+Infelizmente o formato POSIX do comando time obtido com 'time -p' não fornece
+uma resolução suficiente para o experimento.
